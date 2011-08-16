@@ -1,0 +1,13 @@
+This is a simple extension for sqlite to perform sort by
+debian version number. A example should demo how it works:
+
+
+# load extension
+sqlite> .load "/usr/lib/sqlite3/debversions.so"
+
+# create table
+sqlite> insert into versions values("1.0-1");
+sqlite> insert into versions values("1.0-1~ppa1");
+
+# run with the custom collate
+sqlite> SELECT version FROM versions ORDER BY version COLLATE debversion_compare;

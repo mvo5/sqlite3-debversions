@@ -17,35 +17,27 @@ SQLITE_EXTENSION_INIT1
 
 extern "C"
 {
-static
-void debversioncmp(sqlite3_context *ctx, int argc, sqlite3_value **argv)
-{
-   int res;
-   const char *lstr, *rstr;
- 
-   assert(argc == 2);
+   static
+   int debversioncmp(void *handle,
+                     int len_l, const void *v_lstr, 
+                     int len_r, const void *v_rstr)
+   {
+      int res;
+      const char *lstr = (const char*)v_lstr;
+      const char *rstr = (const char*)v_rstr;
+      const char *lstr_end = (const char*)lstr+len_l;
+      const char *rstr_end = (const char*)rstr+len_r;
 
-   lstr = (const char *) sqlite3_value_text(argv[0]);
-   if (!lstr) {
-      sqlite3_result_error(ctx, "no lstr", -1);
-      return;
+      res = debVS.DoCmpVersion(lstr, lstr_end,
+                               rstr, rstr_end);
+      return res;
    }
 
-    rstr = (const char *) sqlite3_value_text(argv[1]);
-    if (!rstr) {
-        sqlite3_result_error(ctx, "no rstr", -1);
-        return;
-    }
-
-    res = debVS.CmpVersion(lstr, rstr);
-    sqlite3_result_int(ctx, res);
-    return;
-}
-
-int sqlite3_extension_init(sqlite3 *db, char **err, const sqlite3_api_routines *api)
-{
-	SQLITE_EXTENSION_INIT2(api)
-	sqlite3_create_function(db, "debversion_cmp", 2, SQLITE_UTF8, NULL, debversioncmp, NULL, NULL);
-	return 0;
-}
+   int sqlite3_extension_init(sqlite3 *db, char **err, const sqlite3_api_routines *api)
+   {
+      SQLITE_EXTENSION_INIT2(api);
+      sqlite3_create_collation(db, "debversion_compare", SQLITE_UTF8, NULL, 
+                               debversioncmp);
+      return 0;
+   }
 }
