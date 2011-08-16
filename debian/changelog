@@ -1,0 +1,5 @@
+sqlite3-debversions (0.1+bzr4-0ubuntu1) oneiric; urgency=low
+
+  * Initial release
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 16 Aug 2011 12:00:50 +0200
