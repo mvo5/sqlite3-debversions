@@ -6,15 +6,16 @@ debian version number. A example should demo how it works:
 sqlite> .load "/usr/lib/sqlite3/debversions.so"
 
 # create table
-sqlite> insert into versions values("1.0-1");
-sqlite> insert into versions values("1.0-1~ppa1");
+sqlite> create table packages (name STRING, version STRING);
+sqlite> insert into packages values("apt", "1.0-1");
+sqlite> insert into packages values("apt", "1.0-1~ppa1");
 
 # run with the custom collate to ensure its sorted according to debian versions
-sqlite> SELECT version FROM versions ORDER BY version COLLATE debversion_compare;
+sqlite> SELECT version FROM packages ORDER BY version COLLATE debversion_compare;
 1.0-1~ppa1
 1.0-1
 
 As opposed to the normal string sorting that results in:
-sqlite> SELECT version FROM versions ORDER BY version;
+sqlite> SELECT version FROM packages ORDER BY version;
 1.0-1
 1.0-1~ppa1

@@ -1,4 +1,4 @@
-sqlite3-debversions (0.1+bzr5-0ubuntu1) UNRELEASED; urgency=low
+sqlite3-debversions (0.1+bzr7-0ubuntu1) UNRELEASED; urgency=low
 
   * add missing b-d on libapt-pkg-dev
 

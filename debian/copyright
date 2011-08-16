@@ -1,7 +1,7 @@
 Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
 Name: sqlite3-debversions
 Maintainer: Michael Vogt <mvo@ubuntu.com>
-Source: http://code.launchpad.net/~mvo/+junk/sqlite3-debversions
+Source: http://code.launchpad.net/~mvo/sqlite3-debversions/trunk
 
 Copyright: Package is GPLv2+
 License: GPLv2+
