@@ -4,6 +4,7 @@ Maintainer: Michael Vogt <mvo@ubuntu.com>
 Build-Depends: debhelper (>= 7), libsqlite3-dev, pkg-config
 Standards-Version: 3.8.4
 Section: libs
+Vcs-Bzr: lp:~mvo/+junk/sqlite3-debversions
 
 Package: sqlite3-debversions
 Architecture: any
