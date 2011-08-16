@@ -1,7 +1,7 @@
 Source: sqlite3-debversions
 Priority: optional
 Maintainer: Michael Vogt <mvo@ubuntu.com>
-Build-Depends: debhelper (>= 7), libsqlite3-dev, pkg-config
+Build-Depends: debhelper (>= 7), libsqlite3-dev, pkg-config, libapt-pkg-dev
 Standards-Version: 3.8.4
 Section: libs
 Vcs-Bzr: lp:~mvo/+junk/sqlite3-debversions

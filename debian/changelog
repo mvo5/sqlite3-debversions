@@ -1,3 +1,9 @@
+sqlite3-debversions (0.1+bzr5-0ubuntu1) UNRELEASED; urgency=low
+
+  * add missing b-d on libapt-pkg-dev
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 16 Aug 2011 13:34:18 +0200
+
 sqlite3-debversions (0.1+bzr4-0ubuntu1) oneiric; urgency=low
 
   * Initial release
